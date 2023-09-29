@@ -1,0 +1,39 @@
+---
+import {Toaster} from 'react-hot-toast';
+const {slug}=Astro.params;
+
+export async function getStaticPaths() {
+  
+  let data = await fetch("http://localhost:8081/getallprescription");
+  let posts = await data.json();
+
+  return posts.map((post) => ({
+    params: { slug: post.patientid, },
+   
+  }));
+}
+
+let res = await fetch(`http://localhost:8081/getprescription/${slug}`)
+let pres= await res.json();
+
+---
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    setTimeout(function(){
+        var replacers = document.querySelectorAll('[data-replace]');
+        for(var i=0; i<replacers.length; i++){
+            console.log('hit here2');
+            let replaceClasses = JSON.parse(replacers[i].dataset.replace.replace(/'/g, '"'));
+            Object.keys(replaceClasses).forEach(function(key) {
+                replacers[i].classList.remove(key);
+                replacers[i].classList.add(replaceClasses[key]);
+            });
+        }
+    }, 1);
+  });
+  </script>
+
+<html>
+    <Toaster client:load/>
+    
+</html>

@@ -1,0 +1,44 @@
+---
+
+import NewProject from "../Components/NewProject.jsx";
+import {Toaster} from 'react-hot-toast';
+
+
+---
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    setTimeout(function(){
+        var replacers = document.querySelectorAll('[data-replace]');
+        for(var i=0; i<replacers.length; i++){
+            console.log('hit here2');
+            let replaceClasses = JSON.parse(replacers[i].dataset.replace.replace(/'/g, '"'));
+            Object.keys(replaceClasses).forEach(function(key) {
+                replacers[i].classList.remove(key);
+                replacers[i].classList.add(replaceClasses[key]);
+            });
+        }
+    }, 1);
+});
+</script>
+
+    <html>
+        <Toaster client:load/>
+    <div class="min-h-screen bg-gray-100 flex flex-col justify-center py-12 px-6 lg:px-8 duration-700 relative transform opacity-0 transition-all translate-y-12 ease-out"  data-replace='{ "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }'>
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <img class="mx-auto h-16 w-auto" src="/bonda1.png" alt="Bondamani" />
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Everything starts here!</h2>
+        <p class="mt-2 text-center text-sm text-gray-600 max-w">
+          Already registered user?
+          <a href="/" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">Sign in</a>
+        </p>
+      
+    </div>
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        
+        <div class="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
+            
+            <NewProject client:load/>
+        </div>
+    </div>
+    </div>
+    </html>

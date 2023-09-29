@@ -1,0 +1,79 @@
+---
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" href="/bondaint.jpg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Aurora Ayush | Home</title>
+		<script src="https://unpkg.com/split-type"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function(){
+		setTimeout(function(){
+			var replacers = document.querySelectorAll('[data-replace]');
+			for(var i=0; i<replacers.length; i++){
+				console.log('hit here2');
+				let replaceClasses = JSON.parse(replacers[i].dataset.replace.replace(/'/g, '"'));
+				Object.keys(replaceClasses).forEach(function(key) {
+					replacers[i].classList.remove(key);
+					replacers[i].classList.add(replaceClasses[key]);
+				});
+			}
+		}, 1);
+	});
+	</script>
+	</head>
+	<body>
+		<section class="bg-gray-50 min-h-screen flex items-center justify-center duration-700 relative transform opacity-0 transition-all translate-y-12 ease-out"  data-replace='{ "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }'>
+			<div class="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center" >
+				<div class="sm:w-1/2 px-16" >
+					<img class="h-10 duration-700 relative transform opacity-0 transition-all translate-y-12 ease-out" data-replace='{ "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }' src="bonda1.png" alt="">
+					<h2 class="font-bold text-2xl">Welcome To Aurora Ayush</h2>
+					<p class="text-sm mt-4">Automatic Ayurvedic Medicine Dispensing System</p>
+					<form action="" class="flex flex-col gap-4" id="inputForm">
+						<input class="p-2 mt-8  rounded-xl border" type="text" id="inputField" name="username" placeholder="Enter Patient ID">
+						
+						<button class="bg-[#228e2d] rounded-xl text-white py-2 hover:scale-110 duration-200" type="submit">Login</button>
+
+					</form>
+					<div class="mt-10 grid grid-cols-3 items-center text-gray-500">
+						<hr class="border-gray-500">
+							<p class="text-center text-sm">OR</p>
+						<hr class="border-gray-500">
+					</div>
+					<a href="/NewUser">
+					<button class="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-110 duration-200" >
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-balloon mr-3" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M8 9.984C10.403 9.506 12 7.48 12 5a4 4 0 0 0-8 0c0 2.48 1.597 4.506 4 4.984ZM13 5c0 2.837-1.789 5.227-4.52 5.901l.244.487a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3.177 3.177 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.244-.487C4.789 10.227 3 7.837 3 5a5 5 0 0 1 10 0Zm-6.938-.495a2.003 2.003 0 0 1 1.443-1.443C7.773 2.994 8 2.776 8 2.5c0-.276-.226-.504-.498-.459a3.003 3.003 0 0 0-2.46 2.461c-.046.272.182.498.458.498s.494-.227.562-.495Z"/>
+						  </svg>
+						 New User</button></a>
+						<p class="mt-10 text-xs border-b py-6"> Made With 💚 by Team Aurora™ - 2023</p>
+				</div>
+				<div class="sm:block hidden w-1/2 p-5">
+					
+					<img class=" rounded-2xl duration-700 relative transform opacity-0 transition-all translate-y-12 ease-out" data-replace='{ "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }' src="/bondaint.jpg" alt="">
+				</div>
+			</div>
+		</section>
+		
+	</body>
+	<script content="module"> 
+		console.log("job_done_bruh!");
+			document.getElementById('inputForm').addEventListener('submit', function (e) {
+				e.preventDefault(); // Prevent the default form submission
+			
+				// Get the input field value
+				const inputValue = document.getElementById('inputField').value;
+			
+				// Determine the target page URL based on the input value (replace with your logic)
+				const targetPageUrl = `/post/PatientDashboard/${inputValue}`;
+			
+				// Navigate to the target page
+				window.location.href = targetPageUrl;
+		
+			  });
+			</script>
+</html>

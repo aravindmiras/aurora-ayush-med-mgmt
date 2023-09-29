@@ -1,0 +1,20 @@
+---
+const {medicineid,medicineName, medicineQuantity}=Astro.props;
+---
+<html>
+    <div class="flex flex-wrap justify-center mt-10">
+        <div class="flex rounded-lg h-full w-full  bg-[#2fbf3e] p-8 flex-col">
+           
+            <div class="flex flex-col justify-between flex-grow">
+                <p class="leading-relaxed text-base text-white">
+                    <ul>
+                        <li><b>MEDICINE ID: </b>{medicineid}</li>
+                        <li><b>MEDICINE NAME: </b>{medicineName}</li>
+                        <li><b>MEDICINE QUANTITY: </b>{medicineQuantity}</li>
+                    </ul>
+                </p>
+            </div>
+        </div>  
+    </div>
+    
+</html>
